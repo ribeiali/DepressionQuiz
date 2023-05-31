@@ -16,6 +16,23 @@ import streamlit_authenticator as stauth
 import requests
 
 
+def transalteText(text):
+    sourceLan="en"
+    payload = {
+        "source_language": sourceLan,
+        "target_language": option,
+        "text": title
+    }
+    headers = {
+        "content-type": "application/x-www-form-urlencoded",
+        "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
+        "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
+    }
+    response = requests.post(url, data=payload, headers=headers)
+    data = response.json()
+    return data['data']['translatedText']
+
+
 st.sidebar.header("© 2023")
 st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
 
@@ -124,54 +141,42 @@ if authentication_status == True:   # login successful
 
 
     if st.button("Translate"):
-        sourceLan="en"
-        payload = {
-            "source_language": sourceLan,
-            "target_language": option,
-            "text": title
-        }
-        headers = {
-            "content-type": "application/x-www-form-urlencoded",
-            "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
-            "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
-        }
-        response = requests.post(url, data=payload, headers=headers)
-        data = response.json()
-        translated_text = data['data']['translatedText']
-        st.markdown("### "+translated_text)
+       
+       translated_text=transalteText(title)
+       st.markdown("### "+translated_text)
 
-
-        payload2 = {
-            "source_language": sourceLan,
-            "target_language": option,
-            "text": message
-        }
-        headers2 = {
-            "content-type": "application/x-www-form-urlencoded",
-            "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
-            "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
-        }
-
-        response = requests.post(url, data=payload2, headers=headers2)
-        data = response.json()
-        translated_text = data['data']['translatedText']
-        st.markdown("> "+translated_text)
+       translated_text=transalteText(message)
+       st.markdown("> "+translated_text)
+       
+       warn="""
+            > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
+            >It does not aim to provide one and was not designed to do so."""
+        translated_text=transalteText(warn)
+        st.markdown(translated_text)
+       
+        warn="""
+            > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
+        diagnosis, but indicative only."""
+       
+        translated_text=transalteText(warn)
+        st.markdown(translated_text)
     else:
         title="### "+title       
         message="> "+message
         st.markdown(title)
         st.markdown(message)
-
-
-    # Warning Message 
+            # Warning Message 
    
-    st.markdown("""
-        > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
-        >It does not aim to provide one and was not designed to do so.""")
-    st.markdown("""  
-        > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
-    diagnosis, but indicative only.
-    """)
+        st.markdown("""
+            > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
+            >It does not aim to provide one and was not designed to do so.""")
+        st.markdown("""  
+            > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
+        diagnosis, but indicative only.
+        """)
+
+
+
                 
     # Footer 
     st.write("""
@@ -193,3 +198,4 @@ elif authentication_status == None:
     st.stop()
 else:
     st.warning("unknow error")
+
