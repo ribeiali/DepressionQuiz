@@ -12,7 +12,7 @@ import base64
 
 # Function to encode local image 
 
-img = Image.open("media/images/depression1.png")
+img = Image.open("./media/images/depression1.png")
  
 width, height = img.size
 
