@@ -25,20 +25,16 @@ authenticator = stauth.Authenticate(
 )
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
-
-if authentication_status == True:   # login successful
-    authenticator.logout('Logout', 'main')   # show logout button
-
-
-    st.set_page_config(
+st.set_page_config(
         page_title="Home",
         page_icon="🏠",
     )
-    st.sidebar.header("© 2023")
-    st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
+st.sidebar.header("© 2023")
+st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
+
+if authentication_status == True:   # login successful
 
     # Title and subtitle 
-
     st.write("# Depression quiz")
 
 
@@ -75,5 +71,8 @@ elif authentication_status == False:
 elif authentication_status == None:
     st.warning('Please enter your username and password')
     st.stop()
+else:
+    st.warning("unknow error")
+
 
 # Function for Title, Page Icon and Sidebar
