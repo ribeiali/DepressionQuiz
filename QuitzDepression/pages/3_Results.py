@@ -142,18 +142,17 @@ if authentication_status == True:   # login successful
 
     if st.button("Translate"):
        
-       translated_text=transalteText(title)
-       st.markdown("### "+translated_text)
+        translated_text=transalteText(title)
+        st.markdown("### "+translated_text)
 
-       translated_text=transalteText(message)
-       st.markdown("> "+translated_text)
+        translated_text=transalteText(message)
+        st.markdown("> "+translated_text)
        
-       warn="""
+        warn="""
             > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
             >It does not aim to provide one and was not designed to do so."""
         translated_text=transalteText(warn)
         st.markdown(translated_text)
-       
         warn="""
             > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
         diagnosis, but indicative only."""
