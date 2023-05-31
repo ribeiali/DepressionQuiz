@@ -12,15 +12,15 @@ import base64
 
 # Function to encode local image 
 
-img = Image.open("./media/images/depression1.png")
+# img = Image.open("./media/images/depression1.png")
  
-width, height = img.size
+# width, height = img.size
 
 
-new_width = int(width * 1)
-new_height = int(height * 1)
+# new_width = int(width * 1)
+# new_height = int(height * 1)
 
-resized_img = img.resize((new_width, new_height))
+# resized_img = img.resize((new_width, new_height))
 
 # Sidebar Function
 #st.image(resized_img, caption="Crying Woman", use_column_width=True)
