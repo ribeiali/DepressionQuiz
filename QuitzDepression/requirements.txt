@@ -1,2 +1,1 @@
 streamlit_authenticator
-script_runner
