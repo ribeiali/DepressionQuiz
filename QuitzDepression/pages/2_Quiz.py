@@ -28,48 +28,48 @@ if authentication_status == True:   # login successful
     authenticator.logout('Logout', 'main')   # show logout button
 
 
-    # Function to encode local image 
+    #Function to encode local image 
 
-    # img = Image.open("./media/images/depression1.png")
+    img = Image.open("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
     
-    # width, height = img.size
+    width, height = img.size
 
 
-    # new_width = int(width * 1)
-    # new_height = int(height * 1)
+    new_width = int(width * 1)
+    new_height = int(height * 1)
 
-    # resized_img = img.resize((new_width, new_height))
+    resized_img = img.resize((new_width, new_height))
 
-    # Sidebar Function
-    #st.image(resized_img, caption="Crying Woman", use_column_width=True)
+    #Sidebar Function
+    st.image(resized_img, caption="Crying Woman", use_column_width=True)
     st.sidebar.header("© 2023")
     st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
     
-    # def get_base64(bin_file):
+    def get_base64(bin_file):
         
-    #     with open(bin_file, 'rb') as f:
-    #         data = f.read()
-    #     return base64.b64encode(data).decode()
+        with open(bin_file, 'rb') as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
 
-    # # Function to display image ad background
-    # def add_bg_from_local(image_file):
-    #     with open(image_file, "rb") as image_file:
-    #         encoded_string = base64.b64encode(image_file.read())
-    #     st.markdown(
-    #     f"""
-    #     <style>
-    #     .stApp {{
-    #         background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
-    #         background-size: cover
-    #     }}
-    #     header{{        
-    #         opacity: 0;
-    #     }}
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    #     )
-    # add_bg_from_local('media/background/BackEgg.png')
+    # Function to display image ad background
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+            background-size: cover
+        }}
+        header{{        
+            opacity: 0;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+    add_bg_from_local('/app/depressionquiz/QuitzDepression/media/background/BackEgg.png')
 
     # Define the questions and answer options using a dictionary
     questions = {
