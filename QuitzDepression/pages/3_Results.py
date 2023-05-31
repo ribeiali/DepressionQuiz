@@ -101,7 +101,7 @@ if authentication_status == True:   # login successful
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
 
     else:
-        title=""
+        title="Quiz not taken"
         message="Take the quiz and then come back to check the results please"
 
     # Security Contacts 
