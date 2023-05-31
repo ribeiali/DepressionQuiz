@@ -23,7 +23,7 @@ new_height = int(height * 1)
 resized_img = img.resize((new_width, new_height))
 
 # Sidebar Function
-st.image(resized_img, caption="Crying Woman", use_column_width=True)
+#st.image(resized_img, caption="Crying Woman", use_column_width=True)
 st.sidebar.header("© 2023")
 st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
   
