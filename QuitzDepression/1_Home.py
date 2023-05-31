@@ -35,13 +35,13 @@ st.markdown("""
 
 # button for starting the Quiz 
 
-if st.button("📝 Go to quiz"):
+if st.button("Go to quiz"):
     webbrowser.open_new_tab('http://localhost:8501/Quiz')
 
 
 
   
-st.image("./media/images/depression1.png")
+#st.image("./media/images/depression1.png")
 
 # Footer
 
