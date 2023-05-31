@@ -23,9 +23,9 @@ st.markdown("##### A project developed in ZHAW")
 import streamlit as st
 
 # URL must be changed in case of production, "qrcode" must be installed on the promt with the comand "pip install qrcode"
-img=qrcode.make('localhost:8501/Home')
-img.save("media/qr.png")
-st.image("media/qr.png")
+# img=qrcode.make('localhost:8501/Home')
+# img.save("media/qr.png")
+# st.image("media/qr.png")
 
 
 
