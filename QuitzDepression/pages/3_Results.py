@@ -137,7 +137,7 @@ if authentication_status == True:   # login successful
         }
 
         response = requests.post(url, data=payload, headers=headers)
-        response=response.json("data")
+        response=response.json()
         st.write(response)
 
         response="### "+response
