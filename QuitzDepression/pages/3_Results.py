@@ -126,21 +126,38 @@ if authentication_status == True:   # login successful
     if sourceLan is None:
         sourceLan="en"
 
-    payload = {
-        "source_language": sourceLan,
-        "target_language": option,
-        "text": "What is your name?"
-    }
-    headers = {
-        "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
-        "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
-    }
+    if st.button("Translate")
+        payload = {
+            "source_language": sourceLan,
+            "target_language": option,
+            "text": title
+        }
+        headers = {
+            "content-type": "application/x-www-form-urlencoded",
+            "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
+            "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
+        }
 
-    response = requests.post(url, data=payload, headers=headers)
-    st.markdown("### "+title)
-    st.markdown("> "+message)
-    sourceLan=option
+        response = requests.post(url, data=payload, headers=headers)
+        st.markdown("### "+response)
+
+        payload = {
+            "source_language": sourceLan,
+            "target_language": option,
+            "text": message
+        }
+        headers = {
+            "content-type": "application/x-www-form-urlencoded",
+            "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
+            "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
+        }
+
+        response = requests.post(url, data=payload, headers=headers)
+        st.markdown("> "+response)
+        sourceLan=option
+    else:
+        st.markdown("### "+title)
+        st.markdown("> "+message)
 
 
     # Warning Message 
