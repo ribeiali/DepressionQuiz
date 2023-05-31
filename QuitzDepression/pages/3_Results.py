@@ -137,7 +137,9 @@ if authentication_status == True:   # login successful
         }
 
         response = requests.post(url, data=payload, headers=headers)
-        st.markdown("### "+response)
+        response="### "+response
+        st.markdown(response)
+
 
         payload = {
             "source_language": sourceLan,
@@ -151,11 +153,14 @@ if authentication_status == True:   # login successful
         }
 
         response = requests.post(url, data=payload, headers=headers)
-        st.markdown("> "+response)
+        response="> "+response
+        st.markdown(response)
         sourceLan=option
     else:
-        st.markdown("### "+title)
-        st.markdown("> "+message)
+        title="###"+title       
+        message="###"+message
+        st.markdown(title)
+        st.markdown(message)
 
 
     # Warning Message 
