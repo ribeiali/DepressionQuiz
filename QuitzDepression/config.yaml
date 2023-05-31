@@ -3,10 +3,10 @@ credentials:
     ribeiali:
       email: ribeiali@students.zhaw.ch
       name: ribeiali
-      password: a8c7ce0514735493ec4bd13c294a0e22ca137fc97fccee0984c75ffbe0c8645f
+      password: $2b$12$1o18pWIm.DWSWlSIjEzqsuciQ0d5fWtvbwo/JBkXutCB7cQhoMD32
     guest:
       name: Guest
-      password: 1f92681cff69aa554bef96a4d8dbe31f89ed689ffe7180bc278aff4d4db07bb6
+      password: $2b$12$bGavcuqm1Kq2VcZuCPm2Aekl9nEuLCn8TdmIGce/HManOyBt4u7KG
 cookie:
   expiry_days: 30  # number of days until password is asked again
   key: wMrv1QThc783uEPX5OR701li7Xa46lLg # CodeIgniter Encryption Keysp
