@@ -137,6 +137,7 @@ if authentication_status == True:   # login successful
         }
 
         response = requests.post(url, data=payload, headers=headers)
+        response=response.json()
         response="### "+response
         st.markdown(response)
 
@@ -153,12 +154,13 @@ if authentication_status == True:   # login successful
         }
 
         response = requests.post(url, data=payload, headers=headers)
+        response=response.json()
         response="> "+response
         st.markdown(response)
         sourceLan=option
     else:
-        title="###"+title       
-        message="###"+message
+        title="### "+title       
+        message="> "+message
         st.markdown(title)
         st.markdown(message)
 
