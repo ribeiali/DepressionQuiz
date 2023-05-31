@@ -10,100 +10,127 @@
 # Imports
 import streamlit as st
 import base64
+import yaml
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
 
 st.sidebar.header("© 2023")
 st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
 
-# Function to encode local image  
-def get_base64(bin_file):
-    
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+# -------- user login --------
+with open('/app/depressionquiz/QuitzDepression/config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
 
-# Function to display image ad background
-def add_bg_from_local(image_file):
-    with open(image_file, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read())
-    st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
-        background-size: cover
-    }}
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+)
 
-    header{{        
-        opacity: 0;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-#add_bg_from_local('media/background/BackWhiteSheep.png')
+fullname, authentication_status, username = authenticator.login('Login', 'main')
+if authentication_status == True:   # login successful
+    authenticator.logout('Logout', 'main')   # show logout button
 
-
-# Function to giving the final result 
-if 'points' in st.session_state:
-    st.write("##### `You have scored: "+str(st.session_state["points"])+" points`")
-    points=st.session_state["points"]
-    point10=st.session_state["point10"]
-
-    if point10>0:
-        st.markdown("### WARNING SUICIDAL RISK")
-        st.markdown(">**Advice: immediate discussion required. Refer to PCP mental health specialist or emergency resource for further assessment and intervention as appropriate.**")
-    else:
-        if points <=8:
-            st.markdown("### With this point depression is not likely")
-            st.markdown(">**Advice: Continue support**")
-        elif points >=9 and points<=11 :
-            st.markdown("### With this point Depression is possible")
-            st.markdown(">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP).t**")
+    # Function to encode local image  
+    def get_base64(bin_file):
         
-        elif points >=12 and points<=13 :
-            st.markdown("### With this points there is a fairly high possibility of depression")
-            st.markdown(">**Advice: Monitor, support and offer education. Refer to PCP.**")
-        
-        elif points >=14:
-            st.markdown("### With this points there is a probable depression ")
-            st.markdown(">**Advice: Diagnostic assessment and treatment by PCP and/or specialist.**")
+        with open(bin_file, 'rb') as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
 
-else:
-    st.markdown("**Take the quiz and then come back to check the results please**")
+    # Function to display image ad background
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+            background-size: cover
+        }}
 
-# Security Contacts 
-st.markdown("----")
-st.markdown("""
-- 🇨🇭/🇩🇪 Föderation der Schweizer Psychologinnen und Psychologen
-- 🇨🇭/🇫🇷 Fédération Suisse des Psychologues
-- 🇨🇭/🇮🇹 Federazione Svizzera delle Psicologhe e degli Psicologi 
+        header{{        
+            opacity: 0;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+    #add_bg_from_local('media/background/BackWhiteSheep.png')
 
 
-Phone number: `+41 31 388 88 00`
- 
-- Verband Tel `143` - Die Dargebotene Hand
-- Pro Juventute helpline for children and young people `147`
+    # Function to giving the final result 
+    if 'points' in st.session_state:
+        st.write("##### `You have scored: "+str(st.session_state["points"])+" points`")
+        points=st.session_state["points"]
+        point10=st.session_state["point10"]
 
-**Open 24/7**
-""")
-
-# Warning Message 
-st.markdown("""
-    > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
-    >It does not aim to provide one and was not designed to do so.""")
-st.markdown("""  
-    > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
-diagnosis, but indicative only.
-""")
+        if point10>0:
+            st.markdown("### WARNING SUICIDAL RISK")
+            st.markdown(">**Advice: immediate discussion required. Refer to PCP mental health specialist or emergency resource for further assessment and intervention as appropriate.**")
+        else:
+            if points <=8:
+                st.markdown("### With this point depression is not likely")
+                st.markdown(">**Advice: Continue support**")
+            elif points >=9 and points<=11 :
+                st.markdown("### With this point Depression is possible")
+                st.markdown(">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP).t**")
             
-# Footer 
-st.write("""
-<footer style='background-color: rgb(51,51,51); width:100%; right:0px; left:0px; bottom:0px; position:fixed'>
-<div style='padding: 30px; display: block; color:white; width:100%'>
-    <p style='font-size:20px;'>Alina Ribeiro Pinto – Amine Aksu – Vera Gomez</p>
-    <hr style='width:25%; height:3px; background-color:rgb(238,32,121); margin:2px;'>
+            elif points >=12 and points<=13 :
+                st.markdown("### With this points there is a fairly high possibility of depression")
+                st.markdown(">**Advice: Monitor, support and offer education. Refer to PCP.**")
+            
+            elif points >=14:
+                st.markdown("### With this points there is a probable depression ")
+                st.markdown(">**Advice: Diagnostic assessment and treatment by PCP and/or specialist.**")
 
-</div>
+    else:
+        st.markdown("**Take the quiz and then come back to check the results please**")
 
-</footer>
-""",unsafe_allow_html=True)
+    # Security Contacts 
+    st.markdown("----")
+    st.markdown("""
+    - 🇨🇭/🇩🇪 Föderation der Schweizer Psychologinnen und Psychologen
+    - 🇨🇭/🇫🇷 Fédération Suisse des Psychologues
+    - 🇨🇭/🇮🇹 Federazione Svizzera delle Psicologhe e degli Psicologi 
+
+
+    Phone number: `+41 31 388 88 00`
+    
+    - Verband Tel `143` - Die Dargebotene Hand
+    - Pro Juventute helpline for children and young people `147`
+
+    **Open 24/7**
+    """)
+
+    # Warning Message 
+    st.markdown("""
+        > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
+        >It does not aim to provide one and was not designed to do so.""")
+    st.markdown("""  
+        > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
+    diagnosis, but indicative only.
+    """)
+                
+    # Footer 
+    st.write("""
+    <footer style='background-color: rgb(51,51,51); width:100%; right:0px; left:0px; bottom:0px; position:fixed'>
+    <div style='padding: 30px; display: block; color:white; width:100%'>
+        <p style='font-size:20px;'>Alina Ribeiro Pinto – Amine Aksu – Vera Gomez</p>
+        <hr style='width:25%; height:3px; background-color:rgb(238,32,121); margin:2px;'>
+
+    </div>
+
+    </footer>
+    """,unsafe_allow_html=True)
+
+elif authentication_status == False:
+    st.error('Username/password is incorrect')
+    st.stop()
+elif authentication_status == None:
+    st.warning('Please enter your username and password')
+    st.stop()
+else:
+    st.warning("unknow error")
