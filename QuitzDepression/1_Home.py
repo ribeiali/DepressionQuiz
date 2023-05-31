@@ -13,6 +13,14 @@ import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 
+st.set_page_config(
+        page_title="Home",
+        page_icon="🏠",
+    )
+st.sidebar.header("© 2023")
+st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
+
+
 # -------- user login --------
 with open('/app/depressionquiz/QuitzDepression/config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -25,13 +33,6 @@ authenticator = stauth.Authenticate(
 )
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
-st.set_page_config(
-        page_title="Home",
-        page_icon="🏠",
-    )
-st.sidebar.header("© 2023")
-st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
-
 if authentication_status == True:   # login successful
 
     # Title and subtitle 
