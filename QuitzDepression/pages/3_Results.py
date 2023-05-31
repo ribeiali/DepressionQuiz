@@ -13,6 +13,8 @@ import base64
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
+import requests
+
 
 st.sidebar.header("© 2023")
 st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
@@ -120,7 +122,6 @@ if authentication_status == True:   # login successful
         "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
         "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
     }
-
     response = requests.post(url, data=payload, headers=headers)
 
     print(response.json())
