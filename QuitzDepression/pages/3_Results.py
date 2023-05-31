@@ -40,7 +40,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('media/background/BackWhiteSheep.png')
+#add_bg_from_local('media/background/BackWhiteSheep.png')
 
 
 # Function to giving the final result 
