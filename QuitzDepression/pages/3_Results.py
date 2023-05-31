@@ -137,7 +137,6 @@ if authentication_status == True:   # login successful
         }
         response = requests.post(url, data=payload, headers=headers)
         data = response.json()
-
         translated_text = data['data']['translatedText']
         st.markdown("### "+translated_text)
 
@@ -154,9 +153,7 @@ if authentication_status == True:   # login successful
         }
 
         response = requests.post(url, data=payload2, headers=headers2)
-        response=response.json()
         data = response.json()
-
         translated_text = data['data']['translatedText']
         st.markdown("> "+translated_text)
     else:
