@@ -9,7 +9,31 @@
 # Imports
 import streamlit as st
 import webbrowser
+import yaml
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
 
+# -------- user login --------
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+)
+
+fullname, authentication_status, username = authenticator.login('Login', 'main')
+
+if authentication_status == True:   # login successful
+    authenticator.logout('Logout', 'main')   # show logout button
+elif authentication_status == False:
+    st.error('Username/password is incorrect')
+    st.stop()
+elif authentication_status == None:
+    st.warning('Please enter your username and password')
+    st.stop()
 
 # Function for Title, Page Icon and Sidebar
 
@@ -34,6 +58,8 @@ st.markdown("""
 """)
 
 # button for starting the Quiz 
+
+
 
 if st.button("📝 Go to quiz"):
     webbrowser.open_new_tab('https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz')
