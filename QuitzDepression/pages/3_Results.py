@@ -64,6 +64,15 @@ if authentication_status == True:   # login successful
         )
     add_bg_from_local('/app/depressionquiz/QuitzDepression/media/background/BackWhiteSheep.png')
 
+    option = st.selectbox(
+        'Choose your language',
+        ('en', 'it', 'de','fr')
+    )
+
+    title=""
+    message=""
+
+    
 
     # Function to giving the final result 
     if 'points' in st.session_state:
@@ -72,26 +81,28 @@ if authentication_status == True:   # login successful
         point10=st.session_state["point10"]
 
         if point10>0:
-            st.markdown("### WARNING SUICIDAL RISK")
-            st.markdown(">**Advice: immediate discussion required. Refer to PCP mental health specialist or emergency resource for further assessment and intervention as appropriate.**")
+            title="WARNING SUICIDAL RISK"
+            message="Advice: immediate discussion required. Refer to PCP mental health specialist or emergency resource for further assessment and intervention as appropriate"
         else:
             if points <=8:
-                st.markdown("### With this point depression is not likely")
-                st.markdown(">**Advice: Continue support**")
+                title="### With this point depression is not likely"
+                message="Advice: Continue support"
+
             elif points >=9 and points<=11 :
-                st.markdown("### With this point Depression is possible")
-                st.markdown(">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP).t**")
+                title="### With this point Depression is possible"
+                message=">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP).t"
             
             elif points >=12 and points<=13 :
-                st.markdown("### With this points there is a fairly high possibility of depression")
-                st.markdown(">**Advice: Monitor, support and offer education. Refer to PCP.**")
+                title="With this points there is a fairly high possibility of depression"
+                message=">**Advice: Monitor, support and offer education. Refer to PCP."
             
             elif points >=14:
-                st.markdown("### With this points there is a probable depression ")
-                st.markdown(">**Advice: Diagnostic assessment and treatment by PCP and/or specialist.**")
+                title="With this points there is a probable depression"
+                message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
 
     else:
-        st.markdown("**Take the quiz and then come back to check the results please**")
+        title=""
+        message="Take the quiz and then come back to check the results please"
 
     # Security Contacts 
     st.markdown("----")
@@ -108,13 +119,16 @@ if authentication_status == True:   # login successful
 
     **Open 24/7**
     """)
-
-    # Warning Message 
+    
     url = "https://text-translator2.p.rapidapi.com/translate"
 
+    
+    if(sourceLan is None):
+        sourceLan="en"
+
     payload = {
-        "source_language": "en",
-        "target_language": "id",
+        "source_language": sourceLan,
+        "target_language": option,
         "text": "What is your name?"
     }
     headers = {
@@ -122,9 +136,15 @@ if authentication_status == True:   # login successful
         "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
         "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
     }
-    response = requests.post(url, data=payload, headers=headers)
 
-    print(response.json())
+    response = requests.post(url, data=payload, headers=headers)
+    st.markdown("### "+title)
+    st.markdown("> "+message)
+    sourceLan=option
+
+
+    # Warning Message 
+   
     st.markdown("""
         > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
         >It does not aim to provide one and was not designed to do so.""")
