@@ -149,7 +149,7 @@ if authentication_status == True:   # login successful
         st.markdown("> "+translated_text)
        
         warn="""
-            > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
+            > <b>WARNING:</b> Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
             >It does not aim to provide one and was not designed to do so."""
         translated_text=transalteText(warn,option)
         st.markdown(translated_text)
@@ -158,7 +158,7 @@ if authentication_status == True:   # login successful
         diagnosis, but indicative only."""
        
         translated_text=transalteText(warn,option)
-        st.markdown(translated_text)
+        st.markdown(translated_text,unsafe_allow_html=True)
     else:
         title="### "+title       
         message="> "+message
