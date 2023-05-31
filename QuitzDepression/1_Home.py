@@ -35,7 +35,7 @@ st.markdown("""
 
 # button for starting the Quiz 
 
-if st.button("Go to quiz"):
+if st.button("📝 Go to quiz"):
     webbrowser.open_new_tab('http://localhost:8501/Quiz')
 
 
