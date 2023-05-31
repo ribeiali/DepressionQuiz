@@ -137,7 +137,9 @@ if authentication_status == True:   # login successful
         }
         response = requests.post(url, data=payload, headers=headers)
         data = response.json()
-        translated_text = response['data']['translatedText']
+
+        # Extract the translatedText from the data dictionary
+        translated_text = data['data']['translatedText']
         st.markdown(translated_text)
 
 
