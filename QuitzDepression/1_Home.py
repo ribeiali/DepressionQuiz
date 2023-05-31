@@ -36,7 +36,7 @@ st.markdown("""
 # button for starting the Quiz 
 
 if st.button("📝 Go to quiz"):
-    webbrowser.open_new_tab('http://localhost:8501/Quiz')
+    webbrowser.open_new_tab('https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz')
 
 
 
