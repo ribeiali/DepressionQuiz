@@ -108,6 +108,22 @@ if authentication_status == True:   # login successful
     """)
 
     # Warning Message 
+    url = "https://text-translator2.p.rapidapi.com/translate"
+
+    payload = {
+        "source_language": "en",
+        "target_language": "id",
+        "text": "What is your name?"
+    }
+    headers = {
+        "content-type": "application/x-www-form-urlencoded",
+        "X-RapidAPI-Key": "cabf61fc38msh6466c5b2fa9ba74p1875fcjsn64972fd03062",
+        "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
+    }
+
+    response = requests.post(url, data=payload, headers=headers)
+
+    print(response.json())
     st.markdown("""
         > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
         >It does not aim to provide one and was not designed to do so.""")
