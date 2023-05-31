@@ -123,7 +123,7 @@ if authentication_status == True:   # login successful
     url = "https://text-translator2.p.rapidapi.com/translate"
 
     
-    if(sourceLan is None):
+    if sourceLan is None:
         sourceLan="en"
 
     payload = {
