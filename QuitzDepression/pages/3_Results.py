@@ -136,6 +136,7 @@ if authentication_status == True:   # login successful
             "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
         }
         response = requests.post(url, data=payload, headers=headers)
+        data = response.json()
         translated_text = response['data']['translatedText']
         st.markdown(translated_text)
 
