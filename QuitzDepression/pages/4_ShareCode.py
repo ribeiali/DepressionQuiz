@@ -7,6 +7,7 @@
 * @version: 27.03.2023
 """
 import streamlit as st
+import qrcode as qrcode
 
 
 # Sidebar 
@@ -18,9 +19,9 @@ st.markdown("##### A project developed in ZHAW")
 
 
 # URL must be changed in case of production, "qrcode" must be installed on the promt with the comand "pip install qrcode"
-# img=qrcode.make('localhost:8501/Home')
-# img.save("media/qr.png")
-# st.image("media/qr.png")
+img=qrcode.make('https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app')
+img.save("/app/depressionquiz/QuitzDepression/media/qr.png")
+st.image("/app/depressionquiz/QuitzDepression/media/qr.png")
 
 
 
