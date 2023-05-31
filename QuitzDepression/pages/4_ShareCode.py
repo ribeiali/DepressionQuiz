@@ -7,8 +7,6 @@
 * @version: 27.03.2023
 """
 import streamlit as st
-import qrcode
-from PIL import Image
 
 
 # Sidebar 
@@ -18,9 +16,6 @@ st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`
 st.markdown("## Share this depression quiz")
 st.markdown("##### A project developed in ZHAW")
 
-
-# Fuction to set a qrcode for our website 
-import streamlit as st
 
 # URL must be changed in case of production, "qrcode" must be installed on the promt with the comand "pip install qrcode"
 # img=qrcode.make('localhost:8501/Home')
