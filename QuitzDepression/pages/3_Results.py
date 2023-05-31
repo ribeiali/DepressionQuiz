@@ -60,7 +60,7 @@ if authentication_status == True:   # login successful
         """,
         unsafe_allow_html=True
         )
-    #add_bg_from_local('media/background/BackWhiteSheep.png')
+    add_bg_from_local('/app/depressionquiz/QuitzDepression/media/background/BackWhiteSheep.png')
 
 
     # Function to giving the final result 
