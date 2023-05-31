@@ -34,7 +34,9 @@ authenticator = stauth.Authenticate(
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status == True:   # login successful
-    authenticator.logout('Logout', 'main')   # show logout button
+    st.sidebar(
+        authenticator.logout('Logout', 'main')   # show logout button
+    )
 
     # Title and subtitle 
     st.write("# Depression quiz")
