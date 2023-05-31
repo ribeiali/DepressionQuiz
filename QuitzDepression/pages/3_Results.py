@@ -16,12 +16,12 @@ import streamlit_authenticator as stauth
 import requests
 
 
-def transalteText(text):
+def transalteText(text,option):
     sourceLan="en"
     payload = {
         "source_language": sourceLan,
         "target_language": option,
-        "text": title
+        "text": text
     }
     headers = {
         "content-type": "application/x-www-form-urlencoded",
@@ -142,22 +142,22 @@ if authentication_status == True:   # login successful
 
     if st.button("Translate"):
        
-        translated_text=transalteText(title)
+        translated_text=transalteText(title,option)
         st.markdown("### "+translated_text)
 
-        translated_text=transalteText(message)
+        translated_text=transalteText(message,option)
         st.markdown("> "+translated_text)
        
         warn="""
             > **WARNING:** Please bear in mind that this Quiz  has been designed and created primarily for educational and informative purposes.
             >It does not aim to provide one and was not designed to do so."""
-        translated_text=transalteText(warn)
+        translated_text=transalteText(warn,option)
         st.markdown(translated_text)
         warn="""
             > Also, this questionnaire has a high sensitivity as a screening tool, it is not intended to be a substitute for professional clinical advice. The result is not a
         diagnosis, but indicative only."""
        
-        translated_text=transalteText(warn)
+        translated_text=transalteText(warn,option)
         st.markdown(translated_text)
     else:
         title="### "+title       
