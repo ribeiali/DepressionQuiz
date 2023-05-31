@@ -56,7 +56,7 @@ if authentication_status == True:   # login successful
     if st.button("📝 Go to quiz"):
         webbrowser.open_new_tab('https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz')
 
-    #st.image("./media/images/depression1.png")
+    st.image("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
 
     # Footer
 
