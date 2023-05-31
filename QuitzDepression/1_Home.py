@@ -14,7 +14,7 @@ from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 
 # -------- user login --------
-with open('config.yaml') as file:
+with open('/app/depressionquiz/QuitzDepression/config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
