@@ -1,0 +1,13 @@
+credentials:
+  usernames:
+    ribeiali:
+      email: ribeiali@students.zhaw.ch
+      name: ribeiali
+      password: a8c7ce0514735493ec4bd13c294a0e22ca137fc97fccee0984c75ffbe0c8645f
+    guest:
+      name: Guest
+      password: 1f92681cff69aa554bef96a4d8dbe31f89ed689ffe7180bc278aff4d4db07bb6
+cookie:
+  expiry_days: 30  # number of days until password is asked again
+  key: wMrv1QThc783uEPX5OR701li7Xa46lLg # CodeIgniter Encryption Keysp
+  name: streamlitcookie
