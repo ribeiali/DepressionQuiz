@@ -56,9 +56,10 @@ if authentication_status == True:   # login successful
         
     """)
 
+
     # button for starting the Quiz 
     if st.button("📝 Go to quiz"):
-        new_url = st.experimental_set_query_params(page='Quiz')
+        new_url = st.experimental_set_query_params(page="/Quiz")
         st.experimental_rerun()
     
     st.image("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
