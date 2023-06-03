@@ -89,15 +89,6 @@ if authentication_status == True:   # login successful
         )
     add_bg_from_local('/app/depressionquiz/QuitzDepression/media/background/BackWhiteSheep.png')
 
-    with col1:
-        option = st.selectbox(
-            'Choose your language',
-            ('en', 'it', 'de','fr')
-        )
-    sourceLan="en"
-    title=""
-    message=""
-
     # Function to giving the final result 
     if 'points' in st.session_state:
         st.write("##### `You have scored: "+str(st.session_state["points"])+" points`")
@@ -137,7 +128,15 @@ if authentication_status == True:   # login successful
     
     url = "https://text-translator2.p.rapidapi.com/translate"
 
-
+    with col1:
+        option = st.selectbox(
+            'Choose your language',
+            ('en', 'it', 'de','fr')
+        )
+    sourceLan="en"
+    title=""
+    message=""
+    
     if st.button("Translate"):
        
         translated_text=transalteText(title,option)
