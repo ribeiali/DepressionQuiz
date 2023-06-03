@@ -88,7 +88,7 @@ if authentication_status == True:   # login successful
         unsafe_allow_html=True
         )
     add_bg_from_local('/app/depressionquiz/QuitzDepression/media/background/BackWhiteSheep.png')
-    with col3:
+    with col1:
         option = st.selectbox(
             'Choose your language',
             ('en', 'it', 'de','fr')
