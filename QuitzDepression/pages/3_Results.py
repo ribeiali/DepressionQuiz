@@ -110,13 +110,11 @@ if authentication_status == True:   # login successful
             elif points >=9 and points<=11 :
                 title="With this points Depression is possible"
                 message=">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP)."
-                st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
                 showGif("2.gif")
             
             elif points >=12 and points<=13 :
                 title="With this points there is a fairly high possibility of depression"
                 message=">**Advice: Monitor, support and offer education. Refer to PCP."
-                st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
                 showGif("2.gif")
 
             elif points >=14:
