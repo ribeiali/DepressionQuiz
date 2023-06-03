@@ -88,6 +88,7 @@ if authentication_status == True:   # login successful
     sourceLan="en"
     title=""
     message=""
+    gif="1"
 
     
 
@@ -96,7 +97,6 @@ if authentication_status == True:   # login successful
         st.write("##### `You have scored: "+str(st.session_state["points"])+" points`")
         points=st.session_state["points"]
         point10=st.session_state["point10"]
-
         if point10>0:
             title="WARNING SUICIDAL RISK"
             message="Advice: immediate discussion required. Refer to PCP mental health specialist or emergency resource for further assessment and intervention as appropriate"
@@ -104,32 +104,38 @@ if authentication_status == True:   # login successful
             if points <=8:
                 title="### With this point depression is not likely"
                 message="Advice: Continue support"
-                st.markdown("![Gif you are doing great!](../media/images/1.gif)")
+                gif="1"
 
             elif points >=9 and points<=11 :
                 title="### With this point Depression is possible"
                 message=">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP)."
                 st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
-                st.markdown("![Gif healing will come](../media/images/2.gif)")
-
-                
+                gif="2"
             
             elif points >=12 and points<=13 :
                 title="With this points there is a fairly high possibility of depression"
                 message=">**Advice: Monitor, support and offer education. Refer to PCP."
                 st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
-                st.markdown("![Gif healing will come](../media/images/2.gif)")
-            
+                gif="2"
+
             elif points >=14:
                 title="With this points there is a probable depression"
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
-                st.markdown("![Gif Therapy is medicine](.../media/images/3.gif)")
-
+                gif="3"
 
     else:
         title="Quiz not taken"
         message="Take the quiz and then come back to check the results please"
 
+    #show gif
+    file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif+".gif", "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+
+    st.markdown(
+        f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',unsafe_allow_html=True,
+    )
     # Security Contacts 
     st.markdown("----")
     st.markdown("""
