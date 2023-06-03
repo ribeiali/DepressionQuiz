@@ -32,6 +32,14 @@ def transalteText(text,option):
     data = response.json()
     return data['data']['translatedText']
 
+def showGif(gif):
+    file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif, "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+    st.markdown(
+        f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',unsafe_allow_html=True,
+    )
 
 st.sidebar.header("© 2023")
 st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
@@ -88,9 +96,6 @@ if authentication_status == True:   # login successful
     sourceLan="en"
     title=""
     message=""
-    gif="1"
-
-    
 
     # Function to giving the final result 
     if 'points' in st.session_state:
@@ -104,33 +109,24 @@ if authentication_status == True:   # login successful
             if points <=8:
                 title="### With this point depression is not likely"
                 message="Advice: Continue support"
-                gif="3"
+                showGif("1.gif")
 
             elif points >=9 and points<=11 :
                 title="### With this point Depression is possible"
                 message=">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP)."
                 st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
-                gif="2"
+                showGif("2.gif")
             
             elif points >=12 and points<=13 :
                 title="With this points there is a fairly high possibility of depression"
                 message=">**Advice: Monitor, support and offer education. Refer to PCP."
                 st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
-                gif="2"
+                showGif("2.gif")
 
             elif points >=14:
                 title="With this points there is a probable depression"
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
-                gif="1"
-
-            #show gif
-            file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif+".gif", "rb")
-            contents = file_.read()
-            data_url = base64.b64encode(contents).decode("utf-8")
-            file_.close()
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',unsafe_allow_html=True,
-            )
+                showGif("3.gif")
     else:
         title="Quiz not taken"
         message="Take the quiz and then come back to check the results please"
