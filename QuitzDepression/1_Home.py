@@ -61,8 +61,8 @@ if authentication_status == True:   # login successful
     # button for starting the Quiz 
     st.write(f'''
     <a target="_self" href="https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz">
-        <button>
-            Please login via Google
+        <button class="css-1n543e5 edgvbvh10">
+            📝 To the quitz
         </button>
     </a>
     ''',
