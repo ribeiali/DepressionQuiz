@@ -49,7 +49,7 @@ authenticator = stauth.Authenticate(
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status == True:   # login successful
-    col1, col2, col3 = st.beta_columns(3)
+    col1, col2, col3 = st.columns(3)
     with col3:
         authenticator.logout('Logout', 'main')   # show logout button
 
@@ -104,18 +104,26 @@ if authentication_status == True:   # login successful
             if points <=8:
                 title="### With this point depression is not likely"
                 message="Advice: Continue support"
+                st.image("/app/depressionquiz/QuitzDepression/media/images/1.gif")
+                
 
             elif points >=9 and points<=11 :
                 title="### With this point Depression is possible"
-                message=">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP).t"
+                message=">**Advice: Support, re-screen in 2-4 weeks. Consider referral to primary care provider(PCP)."
+                st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
+
+                
             
             elif points >=12 and points<=13 :
                 title="With this points there is a fairly high possibility of depression"
                 message=">**Advice: Monitor, support and offer education. Refer to PCP."
-            
+                st.image("/app/depressionquiz/QuitzDepression/media/images/2.gif")
+
             elif points >=14:
                 title="With this points there is a probable depression"
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
+                st.image("/app/depressionquiz/QuitzDepression/media/images/3.gif")
+
 
     else:
         title="Quiz not taken"
