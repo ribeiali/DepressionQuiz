@@ -64,7 +64,7 @@ if authentication_status == True:   # login successful
         # Execute JavaScript to redirect to another page
         html_code = '''
         <script>
-        window.location.href = "https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz";
+        window.open("https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz)";
         </script>
         '''
         html(html_code)
