@@ -21,6 +21,7 @@ st.sidebar.header("© 2023")
 st.sidebar.markdown("`👩‍💻 Power by Alina, Amine and Vera with Streamlit`")
 
 
+
 # -------- user login --------
 with open('/app/depressionquiz/QuitzDepression/config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -38,6 +39,8 @@ if authentication_status == True:   # login successful
     with col3:
         authenticator.logout('Logout', 'main')   # show logout button
     
+    def redirect_to_page(url):
+        st.markdown(f'<a href="{url}"></a>', unsafe_allow_html=True)
     
 
     # Title and subtitle 
@@ -54,7 +57,7 @@ if authentication_status == True:   # login successful
 
     # button for starting the Quiz 
     if st.button("📝 Go to quiz"):
-        webbrowser.open_new_tab('https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz')
+        redirect_to_page("https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz");
 
     st.image("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
 
