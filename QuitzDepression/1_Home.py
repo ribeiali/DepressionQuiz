@@ -34,7 +34,7 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days'],
 )
 def redirect_to_page(url):
-    st.markdown(f'<a href="{url}","_self"></a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{url}","_self" target="_self"></a>', unsafe_allow_html=True)
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status == True:   # login successful
@@ -60,8 +60,8 @@ if authentication_status == True:   # login successful
 
     # button for starting the Quiz 
     st.write(f'''
-        <a class="css-1n543e5 edgvbvh10" href="https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz">
-            📝 To the quitz
+        <a class="css-1n543e5 edgvbvh10" style="color:'black'; text-decoratione:'none';" target="_self" href="https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz">
+        📝 To the quitz
         </a>
         ''',
         unsafe_allow_html=True
