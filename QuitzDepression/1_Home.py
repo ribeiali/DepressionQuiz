@@ -32,6 +32,8 @@ authenticator = stauth.Authenticate(
     config['cookie']['key'],
     config['cookie']['expiry_days'],
 )
+def redirect_to_page(url):
+    st.markdown(f'<a href="{url}"></a>', unsafe_allow_html=True)
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status == True:   # login successful
@@ -39,8 +41,7 @@ if authentication_status == True:   # login successful
     with col3:
         authenticator.logout('Logout', 'main')   # show logout button
     
-    def redirect_to_page(url):
-        st.markdown(f'<a href="{url}"></a>', unsafe_allow_html=True)
+   
     
 
     # Title and subtitle 
