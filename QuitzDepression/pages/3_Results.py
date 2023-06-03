@@ -134,22 +134,6 @@ if authentication_status == True:   # login successful
         message="Take the quiz and then come back to check the results please"
 
     
-    # Security Contacts 
-    st.markdown("----")
-    st.markdown("""
-    - 🇨🇭/🇩🇪 Föderation der Schweizer Psychologinnen und Psychologen
-    - 🇨🇭/🇫🇷 Fédération Suisse des Psychologues
-    - 🇨🇭/🇮🇹 Federazione Svizzera delle Psicologhe e degli Psicologi 
-
-
-    Phone number: `+41 31 388 88 00`
-    
-    - Verband Tel `143` - Die Dargebotene Hand
-    - Pro Juventute helpline for children and young people `147`
-
-    **Open 24/7**
-    """)
-    
     url = "https://text-translator2.p.rapidapi.com/translate"
 
 
@@ -189,7 +173,21 @@ if authentication_status == True:   # login successful
         """)
 
 
+    # Security Contacts 
+    st.markdown("----")
+    st.markdown("""
+    - 🇨🇭/🇩🇪 Föderation der Schweizer Psychologinnen und Psychologen
+    - 🇨🇭/🇫🇷 Fédération Suisse des Psychologues
+    - 🇨🇭/🇮🇹 Federazione Svizzera delle Psicologhe e degli Psicologi 
 
+
+    Phone number: `+41 31 388 88 00`
+    
+    - Verband Tel `143` - Die Dargebotene Hand
+    - Pro Juventute helpline for children and young people `147`
+
+    **Open 24/7**
+    """)
                 
     # Footer 
     st.write("""
