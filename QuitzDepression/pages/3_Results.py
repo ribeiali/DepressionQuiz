@@ -123,19 +123,19 @@ if authentication_status == True:   # login successful
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
                 gif="1"
 
+            #show gif
+            file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif+".gif", "rb")
+            contents = file_.read()
+            data_url = base64.b64encode(contents).decode("utf-8")
+            file_.close()
+            st.markdown(
+                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',unsafe_allow_html=True,
+            )
     else:
         title="Quiz not taken"
         message="Take the quiz and then come back to check the results please"
 
-    #show gif
-    file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif+".gif", "rb")
-    contents = file_.read()
-    data_url = base64.b64encode(contents).decode("utf-8")
-    file_.close()
-
-    st.markdown(
-        f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',unsafe_allow_html=True,
-    )
+    
     # Security Contacts 
     st.markdown("----")
     st.markdown("""
