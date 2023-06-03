@@ -12,6 +12,7 @@ import webbrowser
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
+from streamlit.components.v1 import html
 
 st.set_page_config(
         page_title="Home",
@@ -59,8 +60,14 @@ if authentication_status == True:   # login successful
 
     # button for starting the Quiz 
     if st.button("📝 Go to quiz"):
-        new_url = st.experimental_set_query_params(page="/Quiz")
-        st.experimental_rerun()
+
+        # Execute JavaScript to redirect to another page
+        html_code = '''
+        <script>
+        window.location.href = "https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz";
+        </script>
+        '''
+        html(html_code)
     
     st.image("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
 
