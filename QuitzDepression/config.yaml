@@ -5,7 +5,7 @@ credentials:
       name: ribeiali
       password: $2b$12$1o18pWIm.DWSWlSIjEzqsuciQ0d5fWtvbwo/JBkXutCB7cQhoMD32
     guest:
-      name: Guest
+      name: guest
       password: $2b$12$bGavcuqm1Kq2VcZuCPm2Aekl9nEuLCn8TdmIGce/HManOyBt4u7KG
 cookie:
   expiry_days: 30  # number of days until password is asked again
