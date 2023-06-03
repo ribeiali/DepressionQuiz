@@ -58,8 +58,9 @@ if authentication_status == True:   # login successful
 
     # button for starting the Quiz 
     if st.button("📝 Go to quiz"):
-        redirect_to_page("https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz")
-
+        new_url = st.experimental_set_query_params(page='Quiz')
+        st.experimental_rerun()
+    
     st.image("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
 
     # Footer
