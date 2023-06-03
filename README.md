@@ -6,7 +6,7 @@ This is the repo of the depression quiz, a simple project in Python Streamlit to
 
 - **WARNING:** Please bear in mind that this quiz has been designed and created primarily for educational and informative purposes. It does not aim to provide one and was not designed to do so.
 
-## 👨🏼‍💻 Developers:
+## 👩‍💻 Developers:
 
 - **Alina Ribeiro Pinto**
 - **Amine Aksu**
