@@ -159,7 +159,7 @@ if authentication_status == True:   # login successful
     # Display the final score
 
     if st.button('See results'):
-        file_ = open("../media/images/3.gif", "rb")
+        file_ = open("/app/depressionquiz/QuitzDepression/media/images/3.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
