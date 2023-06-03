@@ -59,15 +59,15 @@ if authentication_status == True:   # login successful
 
 
     # button for starting the Quiz 
-    if st.button("📝 Go to quiz"):
-
-        # Execute JavaScript to redirect to another page
-        html_code = '''
-        <script>
-        window.open("https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz)";
-        </script>
-        '''
-        html(html_code)
+    st.write(f'''
+    <a target="_self" href="https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz">
+        <button>
+            Please login via Google
+        </button>
+    </a>
+    ''',
+    unsafe_allow_html=True
+)
     
     st.image("/app/depressionquiz/QuitzDepression/media/images/depression1.png")
 
