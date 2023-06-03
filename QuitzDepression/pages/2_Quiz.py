@@ -159,7 +159,7 @@ if authentication_status == True:   # login successful
     # Display the final score
 
     if st.button('See results'):
-        st.markdown("![Gif Therapy is medicine](.../media/images/3.gif)")
+        st.markdown("![Gif Therapy is medicine](../media/images/3.gif)")
 
         st.session_state['points']=totalScore+point10
         st.session_state['point10']=point10
