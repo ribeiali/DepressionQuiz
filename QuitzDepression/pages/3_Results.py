@@ -135,6 +135,7 @@ if authentication_status == True:   # login successful
         )
     sourceLan="en"
     
+    url = "https://text-translator2.p.rapidapi.com/translate"
 
     if st.button("Translate"):
        
