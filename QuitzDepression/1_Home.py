@@ -60,8 +60,8 @@ if authentication_status == True:   # login successful
 
     # button for starting the Quiz 
     st.write(f'''
-    <a class="css-1n543e5 edgvbvh10" style=" color:'black'; text-decoratione:'none'; " target="_self" href="https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz">
-        📝 To the quitz
+    <a class="css-1n543e5 edgvbvh10; " style=" color:'black'; text-decoratione:'none'; " target="_self" href="https://ribeiali-depressionquiz-quitzdepression1-home-yfd81a.streamlit.app/Quiz">
+        <p class="css-1vbkxwb e16nr0p34">📝 To the quitz<p>
     </a>
     ''',
     unsafe_allow_html=True
