@@ -104,7 +104,7 @@ if authentication_status == True:   # login successful
             if points <=8:
                 title="### With this point depression is not likely"
                 message="Advice: Continue support"
-                gif="1"
+                gif="3"
 
             elif points >=9 and points<=11 :
                 title="### With this point Depression is possible"
@@ -121,7 +121,7 @@ if authentication_status == True:   # login successful
             elif points >=14:
                 title="With this points there is a probable depression"
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
-                gif="3"
+                gif="1"
 
     else:
         title="Quiz not taken"
