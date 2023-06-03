@@ -25,7 +25,7 @@ authenticator = stauth.Authenticate(
 
 fullname, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status == True:   # login successful
-    col1, col2, col3 = st.beta_columns(3)
+    col1, col2, col3 = st.columns(3)
     with col3:
         authenticator.logout('Logout', 'main')   # show logout button
 
