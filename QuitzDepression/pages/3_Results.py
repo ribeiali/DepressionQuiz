@@ -33,7 +33,6 @@ def transalteText(text,option):
     return data['data']['translatedText']
 
 def showGif(gif):
-    st.write("/app/depressionquiz/QuitzDepression/media/images/"+gif)
     file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif, "rb")
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
@@ -106,6 +105,8 @@ if authentication_status == True:   # login successful
         if point10>0:
             title="WARNING SUICIDAL RISK"
             message="Advice: immediate discussion required. Refer to PCP mental health specialist or emergency resource for further assessment and intervention as appropriate"
+            showGif("3.gif")
+
         else:
             if points <=8:
                 title="### With this point depression is not likely"
@@ -127,7 +128,7 @@ if authentication_status == True:   # login successful
             elif points >=14:
                 title="With this points there is a probable depression"
                 message="Advice: Diagnostic assessment and treatment by PCP and/or specialist."
-                showGif("3.gif")
+                showGif("2.gif")
     else:
         title="Quiz not taken"
         message="Take the quiz and then come back to check the results please"
