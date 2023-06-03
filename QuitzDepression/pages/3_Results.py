@@ -33,6 +33,7 @@ def transalteText(text,option):
     return data['data']['translatedText']
 
 def showGif(gif):
+    st.write("/app/depressionquiz/QuitzDepression/media/images/"+gif)
     file_ = open("/app/depressionquiz/QuitzDepression/media/images/"+gif, "rb")
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
